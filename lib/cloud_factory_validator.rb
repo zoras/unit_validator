@@ -1,11 +1,8 @@
 require 'csv'
-require 'rubygems'
-require 'active_support/all'
 require 'roo'
-require 'zip'
-require 'spreadsheet'
-require 'nokogiri'
+require 'active_support/core_ext/object/blank'
 require 'generic_spreadsheet'
+
 
 INPUT_HEADERS = [{:field_id => "field_1", :label => "company name", :field_type => "text_data", 
   :value => "Sprout", :required => true, :validation_format => "general"
@@ -23,7 +20,7 @@ INPUT_HEADERS = [{:field_id => "field_1", :label => "company name", :field_type 
 #   :value => "Sprout contact card", :required => true, :validation_format => "url", :url => "http://myurl.com/image1.jpg", :alt => "Card title"
 #   }]
 
-class Run
+class CloudFactoryValidator
 
   def input_data(inputs)
     csv_contents = CSV.parse(inputs)
@@ -138,6 +135,6 @@ end
 
 inputs = Openoffice.new("fixtures/gdoc.ods").to_csv
 
-run = Run.new
+run = CloudFactoryValidator.new
 
 run.input_data(inputs)
