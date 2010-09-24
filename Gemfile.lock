@@ -1,0 +1,24 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    google-spreadsheet-ruby (0.1.1)
+      hpricot (>= 0.3)
+      oauth (>= 0.3.6)
+    hpricot (0.8.2)
+    nokogiri (1.4.3.1)
+    oauth (0.4.3)
+    roo (1.9.3)
+    ruby-ole (1.2.10.1)
+    spreadsheet (0.6.4.1)
+      ruby-ole
+    zip (2.0.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  google-spreadsheet-ruby
+  nokogiri
+  roo
+  spreadsheet
+  zip
