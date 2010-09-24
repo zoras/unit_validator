@@ -1,24 +1,56 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    activesupport (3.0.0)
+    autotest-fsevent (0.2.3)
+      sys-uname
+    autotest-growl (0.2.5)
+    builder (2.1.2)
+    diff-lcs (1.1.2)
+    git (1.2.5)
     google-spreadsheet-ruby (0.1.1)
       hpricot (>= 0.3)
       oauth (>= 0.3.6)
     hpricot (0.8.2)
+    jeweler (1.5.0.pre3)
+      bundler (~> 1.0.0)
+      git (>= 1.2.5)
+      rake
     nokogiri (1.4.3.1)
     oauth (0.4.3)
+    rake (0.8.7)
+    rcov (0.9.9)
     roo (1.9.3)
+    rspec (2.0.0.beta.22)
+      rspec-core (= 2.0.0.beta.22)
+      rspec-expectations (= 2.0.0.beta.22)
+      rspec-mocks (= 2.0.0.beta.22)
+    rspec-core (2.0.0.beta.22)
+    rspec-expectations (2.0.0.beta.22)
+      diff-lcs (>= 1.1.2)
+    rspec-mocks (2.0.0.beta.22)
+      rspec-core (= 2.0.0.beta.22)
+      rspec-expectations (= 2.0.0.beta.22)
     ruby-ole (1.2.10.1)
     spreadsheet (0.6.4.1)
       ruby-ole
+    sys-uname (0.8.4)
     zip (2.0.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  activesupport
+  autotest-fsevent (>= 0.2.2)
+  autotest-growl (>= 0.2.4)
+  builder
+  bundler (~> 1.0.0)
   google-spreadsheet-ruby
+  jeweler (~> 1.5.0.pre3)
   nokogiri
+  rcov
   roo
+  rspec (>= 2.0.0.beta.19)
   spreadsheet
   zip
