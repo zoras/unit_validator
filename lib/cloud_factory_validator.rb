@@ -3,40 +3,29 @@ require 'roo'
 require 'active_support/core_ext/object/blank'
 require 'generic_spreadsheet'
 
-# INPUT_HEADERS = [{:field_id => "field_1", :label => "company name", :field_type => "text_data", 
-#   :value => "Sprout", :required => true, :validation_format => "general"
-#   },
-#   {:field_id => "field_2", :label => "email", :field_type => "text_data",
-#     :value => "spt@lala.com", :required => false, :validation_format => "email"
-#     }]
-
-    # Check the following keys
-    # :label, :required, :validation_format
-
-# Image Data
-# 
-# INPUT_HEADERS = [{:field_id => "field_1", :label => "Card title", :field_type => "image_data", 
-#   :value => "Sprout contact card", :required => true, :validation_format => "url", :url => "http://myurl.com/image1.jpg", :alt => "Card title"
-#   }]
-
 class CloudFactoryValidator
 
   attr_accessor :errors, :rules
-  attr_reader :return_value
   
   def initialize(rules)
     @errors = []
     @rules = rules
     @invalid_units, @temp_units, @valid_units = [], [], []
   end
-
-  # returns true unless value is blank when required rule is true
+  
+  def self.check_extension(file_location)
+    @error = []
+    ext = File.extname(file_location).sub(/./,"")  
+    formats = %w[csv xls xlsx ods]
+    check = formats.include?(ext)
+    
+    @error << "Invalid file! The specified format is not supported." unless check
+    {:check => check, :error => @error}
+  end
+  
   def required(rule, value)
-    if rule && value.blank?
-      false
-    else
-      true
-    end
+    # returns true unless value is blank when required rule is true
+    (rule && value.blank?) ? false : true
   end
   
   def valid(format, value)
@@ -79,7 +68,7 @@ class CloudFactoryValidator
   def check_date(value)
     begin
       val = value.scan(/^(\d{1,2})[\/|-|\.|\s](\d{1,2})[\/|-|\.|\s](\d{2,4})$/) # dd.mm.yyyy
-      Date.civil(val[0][2].to_i,val[0][1].to_i,val[0][0].to_i)
+      Date.civil(val[0][2].to_i,val[0][1].to_i,val[0][0].to_i) # civil check julian date in yyyy.mm.dd
       !val.blank? ? true : false
     rescue
       # puts "Invalid Date:: #{value} is not valid date."
@@ -122,12 +111,7 @@ class CloudFactoryValidator
             end
           end
         end
-
-        # Convert csv data to hash. ['id','company'], [1, 'Google'] => {'id' => 1, 'company' => 'Google'}
-        # data = Hash[csv_header.zip(item.map{|a| a.strip })]
-
-        # Add the unit as input data to the production run (which will in turn pass it on to the first station)
-        #run.stations.first.units << Unit.new(data)
+        
       end
     else
       @errors << "Headers doesnot math the column counts"
@@ -137,19 +121,5 @@ class CloudFactoryValidator
     @valid_units = @temp_units - @invalid_units
     
     {:valid_units => @valid_units, :invalid_units => @invalid_units}
-    # puts "INVALID UNITS::#{@invalid_units.inspect}"
-    # puts "VALID UNITS::#{@valid_units.inspect}"
   end
 end
-
-# inputs = File.read("fixtures/gdoc.csv")
-
-# inputs = Excel.new("fixtures/gdoc.xls").to_csv
-
-# inputs = Excelx.new("fixtures/msExcel.xlsx").to_csv
-
-# inputs = Openoffice.new("fixtures/gdoc.ods").to_csv
-
-# run = CloudFactoryValidator.new
-# 
-# run.input_data(inputs)

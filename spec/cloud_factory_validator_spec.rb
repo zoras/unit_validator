@@ -106,11 +106,11 @@ describe "CloudFactoryValidator" do
               :value => "01-01-2002", :required => true, :validation_format => "date"
              }]
     inputs = "Date of Birth\n15.12.2009\n1990-01-02"
-    # valid_output = [["15.12.2009"]]
+    valid_output = [["15.12.2009"]]
     invalid_output = [["1990-01-02"]]
     
     cloud_validator = CloudFactoryValidator.new(rules)
-    # cloud_validator.parse_and_validate(inputs)[:valid_units].should == valid_output
+    cloud_validator.parse_and_validate(inputs)[:valid_units].should == valid_output
     cloud_validator.parse_and_validate(inputs)[:invalid_units].should == invalid_output
   end
   
@@ -127,4 +127,55 @@ describe "CloudFactoryValidator" do
     cloud_validator.parse_and_validate(inputs)[:invalid_units].should == invalid_output
   end
   
+  it "should check the file type and reject with error if its of the unsupported format" do
+    file_location = "fixtures/gdoc.xlsx"
+    CloudFactoryValidator.check_extension(file_location)[:check].should == true
+    
+    file_location = "fixtures/gdoc.xlsxsfdsf"
+    CloudFactoryValidator.check_extension(file_location)[:check].should == false
+    CloudFactoryValidator.check_extension(file_location)[:error].should include("Invalid file! The specified format is not supported.")
+  end
+  
+  it "should parse the input from .ods, .xlsx or .xls files" do
+    
+    file_location = "fixtures/gdoc.xlsx"
+    inputs = Excelx.new(file_location).to_csv
+    
+    output = <<STR
+"company name","email"
+"Apple",
+"sprout","info@sproutify.com"
+,
+,"inf o@ab c.com"
+,
+"DEF","  info@def.com   "
+"GHI",
+,
+,
+,
+"  ","  "
+STR
+    inputs.should == output
+    
+    inputs = Excel.new("fixtures/gdoc.xls").to_csv
+    inputs.should == output
+    
+    inputs = Openoffice.new("fixtures/gdoc.ods").to_csv
+    output = <<STR
+"company name","email"
+"Apple",
+"sprout","info@sproutify.com"
+,
+,"inf o@ab c.com"
+,
+"DEF","  info@def.com   "
+"GHI",
+,
+,
+,
+,
+STR
+    inputs.should == output
+  end
+    
 end
