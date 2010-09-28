@@ -12,7 +12,7 @@ require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "Cloud Factory Validator"
+  gem.name = "cloud_factory_validator"
   gem.summary = %Q{Takes the Instruction Input as Rule, parse the CSV files and does the validation}
   gem.description = %Q{Takes the Instruction Input as Rule, parse the CSV files and applies the validation and returns valid and invalid units}
   gem.email = "saroj@sproutfiy.com"
