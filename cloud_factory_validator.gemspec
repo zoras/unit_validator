@@ -14,8 +14,7 @@ Gem::Specification.new do |s|
   s.email = %q{saroj@sproutfiy.com}
   s.extra_rdoc_files = [
     "LICENSE",
-    "README.md",
-    "README.rdoc"
+    "README.md"
   ]
   s.files = [
     ".autotest",
@@ -24,7 +23,6 @@ Gem::Specification.new do |s|
     "Gemfile.lock",
     "LICENSE",
     "README.md",
-    "README.rdoc",
     "Rakefile",
     "VERSION",
     "autotest/discover.rb",
