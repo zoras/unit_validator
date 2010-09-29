@@ -14,6 +14,7 @@ Gem::Specification.new do |s|
   s.email = %q{saroj@sproutfiy.com}
   s.extra_rdoc_files = [
     "LICENSE",
+    "README.md",
     "README.rdoc"
   ]
   s.files = [
@@ -22,10 +23,12 @@ Gem::Specification.new do |s|
     "Gemfile",
     "Gemfile.lock",
     "LICENSE",
+    "README.md",
     "README.rdoc",
     "Rakefile",
     "VERSION",
     "autotest/discover.rb",
+    "cloud_factory_validator.gemspec",
     "fixtures/gdoc.csv",
     "fixtures/gdoc.ods",
     "fixtures/gdoc.xls",
@@ -63,6 +66,12 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.5.0.pre3"])
       s.add_development_dependency(%q<rcov>, [">= 0"])
+      s.add_runtime_dependency(%q<roo>, [">= 0"])
+      s.add_runtime_dependency(%q<zip>, [">= 0"])
+      s.add_runtime_dependency(%q<spreadsheet>, [">= 0"])
+      s.add_runtime_dependency(%q<nokogiri>, [">= 0"])
+      s.add_runtime_dependency(%q<google-spreadsheet-ruby>, [">= 0"])
+      s.add_runtime_dependency(%q<activesupport>, [">= 0"])
       s.add_development_dependency(%q<rspec>, [">= 2.0.0.beta.19"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.5.0.pre3"])
@@ -81,6 +90,12 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_dependency(%q<jeweler>, ["~> 1.5.0.pre3"])
       s.add_dependency(%q<rcov>, [">= 0"])
+      s.add_dependency(%q<roo>, [">= 0"])
+      s.add_dependency(%q<zip>, [">= 0"])
+      s.add_dependency(%q<spreadsheet>, [">= 0"])
+      s.add_dependency(%q<nokogiri>, [">= 0"])
+      s.add_dependency(%q<google-spreadsheet-ruby>, [">= 0"])
+      s.add_dependency(%q<activesupport>, [">= 0"])
       s.add_dependency(%q<rspec>, [">= 2.0.0.beta.19"])
       s.add_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_dependency(%q<jeweler>, ["~> 1.5.0.pre3"])
@@ -100,6 +115,12 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<bundler>, ["~> 1.0.0"])
     s.add_dependency(%q<jeweler>, ["~> 1.5.0.pre3"])
     s.add_dependency(%q<rcov>, [">= 0"])
+    s.add_dependency(%q<roo>, [">= 0"])
+    s.add_dependency(%q<zip>, [">= 0"])
+    s.add_dependency(%q<spreadsheet>, [">= 0"])
+    s.add_dependency(%q<nokogiri>, [">= 0"])
+    s.add_dependency(%q<google-spreadsheet-ruby>, [">= 0"])
+    s.add_dependency(%q<activesupport>, [">= 0"])
     s.add_dependency(%q<rspec>, [">= 2.0.0.beta.19"])
     s.add_dependency(%q<bundler>, ["~> 1.0.0"])
     s.add_dependency(%q<jeweler>, ["~> 1.5.0.pre3"])
