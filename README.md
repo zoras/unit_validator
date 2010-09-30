@@ -24,11 +24,13 @@ OR
 
 The CFInputValidator checks if the **headers** of the provided spreadsheet matches with the corresponding **rules** *(checked by label)* and gives error message if it doesn't match.
 
-The individual row of the spreadsheet undergoes the validation process and gives the final output as an array of **valid and invalid units**. Later the valid and invalid units can be processed separately as required.
+The individual row of the spreadsheet undergoes the validation process and gives the final output as an array of **valid and invalid units**.
+Later the valid and invalid units can be processed separately as required.
 
 You can even check if a **file format** is supported by the gem.
 
-The gem currently supports `validation_format` of `email`, `number`, `url`, `date` and `time` only. It also checks if value is present if required is true.
+The gem currently supports `validation_format` of `email`, `number`, `url`, `date` and `time` only.
+It also checks if value is present if required is true.
 
 ## Example
 
