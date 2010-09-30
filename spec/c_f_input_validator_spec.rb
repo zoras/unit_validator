@@ -1,6 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
-describe "CloudFactoryValidator" do
+describe "CFInputValidator" do
 
   it "should validate the csv file rows against the rules provided by FormFactory gem" do
     rules = [{:field_id => "field_1", :label => "company name", :field_type => "text_data", 
@@ -12,7 +12,7 @@ describe "CloudFactoryValidator" do
     inputs = "company name,email\nSprout,info@sproutify.com"
     output = [["Sprout","info@sproutify.com"]]
 
-    cloud_validator = CloudFactoryValidator.new(rules)
+    cloud_validator = CFInputValidator.new(rules)
     val = cloud_validator.parse_and_validate(inputs)
     val[:valid_units].should == output
   end
@@ -24,7 +24,7 @@ describe "CloudFactoryValidator" do
     inputs = "company name,email\nSprout,info@sproutify.com"
     output = [["Sprout","info@sproutify.com"]]
             
-    cloud_validator = CloudFactoryValidator.new(rules)
+    cloud_validator = CFInputValidator.new(rules)
     cloud_validator.parse_and_validate(inputs)[:valid_units].should_not == output
     cloud_validator.errors.should include("Headers doesnot math the column counts")
   end
@@ -39,7 +39,7 @@ describe "CloudFactoryValidator" do
     inputs = "company name\nSprout,info@sproutify.com"
     output = [["Sprout","info@sproutify.com"]]
     
-    cloud_validator = CloudFactoryValidator.new(rules)
+    cloud_validator = CFInputValidator.new(rules)
     cloud_validator.parse_and_validate(inputs).should_not == output
     cloud_validator.errors.should include("Headers doesnot math the column counts")
   end
@@ -54,7 +54,7 @@ describe "CloudFactoryValidator" do
     inputs = "company name,email\nSprout,info@sproutify.com\nApple,ram@apple.co.uk\nPatan,ram.gmail@apple.co.in"
     output = [["Sprout","info@sproutify.com"], ["Apple","ram@apple.co.uk"], ["Patan","ram.gmail@apple.co.in"]]
 
-    cloud_validator = CloudFactoryValidator.new(rules)
+    cloud_validator = CFInputValidator.new(rules)
     cloud_validator.parse_and_validate(inputs)[:valid_units].should == output
   end
   
@@ -69,7 +69,7 @@ describe "CloudFactoryValidator" do
     valid_output = [["Sprout","info@sproutify.com"]]
     invalid_output = [["Apple", "ram@apple"], ["Patan", "ram.gmail@ap ple.co.in"], ["Gmail", "@gmail.com"], ["Email","email@"]]
 
-    cloud_validator = CloudFactoryValidator.new(rules)
+    cloud_validator = CFInputValidator.new(rules)
     cloud_validator.parse_and_validate(inputs)[:invalid_units].should == invalid_output
     cloud_validator.parse_and_validate(inputs)[:valid_units].should == valid_output
   end
@@ -82,7 +82,7 @@ describe "CloudFactoryValidator" do
     valid_output = [["http://www.google.com"]]
     invalid_output = [["abc"]]
     
-    cloud_validator = CloudFactoryValidator.new(rules)
+    cloud_validator = CFInputValidator.new(rules)
     cloud_validator.parse_and_validate(inputs)[:valid_units].should == valid_output
     cloud_validator.parse_and_validate(inputs)[:invalid_units].should == invalid_output
   end
@@ -95,7 +95,7 @@ describe "CloudFactoryValidator" do
     valid_output = [["32"]]
     invalid_output = [["@1"]]
     
-    cloud_validator = CloudFactoryValidator.new(rules)
+    cloud_validator = CFInputValidator.new(rules)
     cloud_validator.parse_and_validate(inputs)[:valid_units].should == valid_output
     cloud_validator.parse_and_validate(inputs)[:invalid_units].should == invalid_output
   end
@@ -109,7 +109,7 @@ describe "CloudFactoryValidator" do
     valid_output = [["15.12.2009"]]
     invalid_output = [["1990-01-02"]]
     
-    cloud_validator = CloudFactoryValidator.new(rules)
+    cloud_validator = CFInputValidator.new(rules)
     cloud_validator.parse_and_validate(inputs)[:valid_units].should == valid_output
     cloud_validator.parse_and_validate(inputs)[:invalid_units].should == invalid_output
   end
@@ -122,18 +122,18 @@ describe "CloudFactoryValidator" do
     valid_output = [["01:21"],["23:12"]]
     invalid_output = [["24:12"]]
     
-    cloud_validator = CloudFactoryValidator.new(rules)
+    cloud_validator = CFInputValidator.new(rules)
     cloud_validator.parse_and_validate(inputs)[:valid_units].should == valid_output
     cloud_validator.parse_and_validate(inputs)[:invalid_units].should == invalid_output
   end
   
   it "should check the file type and reject with error if its of the unsupported format" do
     file_location = "fixtures/gdoc.xlsx"
-    CloudFactoryValidator.check_extension(file_location)[:check].should == true
+    CFInputValidator.check_extension(file_location)[:check].should == true
     
     file_location = "fixtures/gdoc.xlsxsfdsf"
-    CloudFactoryValidator.check_extension(file_location)[:check].should == false
-    CloudFactoryValidator.check_extension(file_location)[:error].should include("Invalid file! The specified format is not supported.")
+    CFInputValidator.check_extension(file_location)[:check].should == false
+    CFInputValidator.check_extension(file_location)[:error].should include("Invalid file! The specified format is not supported.")
   end
   
   it "should parse the input from .ods, .xlsx or .xls files" do

@@ -1,8 +1,8 @@
-# Cloud Factory Validatior
+# Cloud Factory Input Validatior (CFInputValidator)
 
-The Cloud Factory Validator is a simple gem to **validate** the *spreadsheet data* inputs as per the given rules.
+The CFInputValidator - Cloud Factory Input Validator is a simple gem to **validate** the *spreadsheet data* inputs as per the given rules.
 
-This gem is being developed for Project **CloudFactory** by [Sprout Technology Services](http://sprout-technology.com).
+This gem is being developed for Project **Cloud Factory** Copyright© [Sprout Technology International Limited](http://sprout-technology.com)
 
 ![Sprout logo](http://sprout-technology.com/images/logo.png) 
 
@@ -10,19 +10,19 @@ This gem is being developed for Project **CloudFactory** by [Sprout Technology S
 	
 In Gemfile
 	source 'http://rubygems.org'
-	gem 'cloud_factory_validator'
+	gem 'c_f_input_validator'
 	
 	bundle install
 
 OR 
-	gem install cloud_factory_validator
+	gem install c_f_input_validator
 	
 	require 'rubygems'
-	require 'cloud_factory_validator'
+	require 'c_f_input_validator'
 
 ## Usage
 
-Cloud Factory Validator checks if the **headers** of the provided spreadsheet matches with the corresponding **rules** *(checked by label)* and gives error message if it doesn't match.
+The CFInputValidator checks if the **headers** of the provided spreadsheet matches with the corresponding **rules** *(checked by label)* and gives error message if it doesn't match.
 
 The individual row of the spreadsheet undergoes the validation process and gives the final output as an array of **valid and invalid units**. Later the valid and invalid units can be processed separately as required.
 
@@ -46,7 +46,7 @@ The gem currently supports `validation_format` of `email`, `number`, `url`, `dat
 	
 		`file_location = "fixtures/gdoc.xlsxsfdsf"`
 		
-		`CloudFactoryValidator.check_extension(file_location)[:check]`
+		`CFInputValidator.check_extension(file_location)[:check]`
 
 	* This gem currently supports the following formats and 'must be converted into csv' before validation.
 		* `inputs = File.read("fixtures/gdoc.csv")`
@@ -54,9 +54,9 @@ The gem currently supports `validation_format` of `email`, `number`, `url`, `dat
 		* `inputs = Excelx.new("fixtures/gdoc.xlsx").to_csv`
 		* `inputs = Openoffice.new("fixtures/gdoc.ods").to_csv`
 
-3. Create a new constructor of *CloudFactoryValidator* class passing the above **rules** as argument.
+3. Create a new constructor of *CFInputValidator* class passing the above **rules** as argument.
 
-		cloud_validator = CloudFactoryValidator.new(rules)
+		cloud_validator = CFInputValidator.new(rules)
 
 4. Call `parse_and_validate(data)` method passing the above inputs as arguments.
 		val = cloud_validator.parse_and_validate(inputs)
@@ -77,4 +77,4 @@ The gem currently supports `validation_format` of `email`, `number`, `url`, `dat
 
 ### Copyright
 
-Copyright (c) 2010 saroz. See LICENSE for details.
+Copyright© Sprout Technology International Limited. See LICENSE for details.

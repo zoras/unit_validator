@@ -9,7 +9,7 @@ end
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 
-require 'cloud_factory_validator'
+require 'c_f_input_validator'
 
 require 'rspec'
 

@@ -12,12 +12,12 @@ require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "cloud_factory_validator"
+  gem.name = "c_f_input_validator"
   gem.summary = %Q{Takes the Instruction Input as Rule, parse the CSV files and does the validation}
   gem.description = %Q{Takes the Instruction Input as Rule, parse the CSV files and applies the validation and returns valid and invalid units}
-  gem.email = "saroj@sproutfiy.com"
-  gem.homepage = "http://github.com/sprout/cloud_factory_validator"
-  gem.authors = ["millisami", "saroz"]
+  gem.email = "saroj@sprout-technology.com"
+  gem.homepage = "http://github.com/zoras/CFInputValidator"
+  gem.authors = ["millisami", "zoras"]
   # Include your dependencies below. Runtime dependencies are required when using your gem,
   # and development dependencies are only needed for development (ie running rake tasks, tests, etc)
   gem.add_runtime_dependency 'roo'
@@ -53,7 +53,7 @@ Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "cloud_factory_validator #{version}"
+  rdoc.title = "c_f_input_validator #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end

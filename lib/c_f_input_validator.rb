@@ -3,7 +3,7 @@ require 'roo'
 require 'active_support/core_ext/object/blank'
 require 'generic_spreadsheet'
 
-class CloudFactoryValidator
+class CFInputValidator
 
   attr_accessor :errors, :rules
   
@@ -53,13 +53,9 @@ class CloudFactoryValidator
     end
 
     if !@invalid_units.include?(value) && !value.nil?
-      if value.match(regex).nil?
+      value.match(regex).nil? ? false : true
         # puts "#{value} does not look like #{format}. #{msg if msg}"
         # puts "#{value} is not validated as #{format} by regex #{regex}."
-        return false
-      else
-        return true
-      end
     else
         return true
     end
@@ -94,20 +90,16 @@ class CloudFactoryValidator
         rules.each_with_index do |header, index|
           next unless item # Escape nil items. This may result while reading csv file with blank line
           
-          item[index].strip! if !item[index].nil?
-          
           unless item.compact.empty?
+            item[index].strip! if !item[index].nil?
+            
             if required(header[:required], item[index]) and valid(header[:validation_format], item[index])
               # temporarily store valid units into temp_units array
-              unless @temp_units.include?(item)
-                @temp_units << item
-              end
+              @temp_units << item unless @temp_units.include?(item)
             else
-              # Note:: While validating input data, collect invalid row(data) and process the others. Display invalid data to
-              # user later
-              unless @invalid_units.include?(item)
-                @invalid_units << item
-              end
+              # Note:: While validating input data, collect invalid row(data) and process the others.
+              # Display invalid data to user later
+              @invalid_units << item unless @invalid_units.include?(item)
             end
           end
         end
