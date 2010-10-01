@@ -66,6 +66,17 @@ It also checks if value is present if required is true.
 5. Now you'll get both valid and invalid data in `:valid_units` and `:invalid_units` arrays respectively.
 	* `val[:valid_units]`
 	* `val[:invalid_units]`
+	
+6. It will give a `.errors` method if the *headers* of spreadsheet data doesn't match with the *rules* or vice-versa saying *"Headers doesnot match the column counts"*.
+ 		rules = [{:field_id => "field_1", :label => "company name", :field_type => "text_data", 
+ 		          :value => "Sprout", :required => true, :validation_format => "general"
+ 		         }]
+ 		inputs = "company name,email\nSprout,info@sproutify.com"
+
+		cloud_validator = CFInputValidator.new(rules)
+    	val = cloud_validator.parse_and_validate(inputs)
+		err = val.errors
+	
 
 ## Note on Patches/Pull Requests
  

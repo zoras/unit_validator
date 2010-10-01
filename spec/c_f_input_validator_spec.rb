@@ -26,7 +26,7 @@ describe "CFInputValidator" do
             
     cloud_validator = CFInputValidator.new(rules)
     cloud_validator.parse_and_validate(inputs)[:valid_units].should_not == output
-    cloud_validator.errors.should include("Headers doesnot math the column counts")
+    cloud_validator.errors.should include("Headers doesnot match the column counts")
   end
   
   it "should not validate the csv file with invalid headers as per rules" do

@@ -106,7 +106,7 @@ class CFInputValidator
         
       end
     else
-      @errors << "Headers doesnot math the column counts"
+      @errors << "Headers doesnot match the column counts"
     end
     
     # calculate valid_units
