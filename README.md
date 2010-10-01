@@ -67,7 +67,7 @@ It also checks if value is present if required is true.
 	* `val[:valid_units]`
 	* `val[:invalid_units]`
 	
-6. It will give a `.errors` method if the *headers* of spreadsheet data doesn't match with the *rules* or vice-versa saying *"Headers doesnot match the column counts"*.
+6. It will give a `.errors` instance variable as error if the *headers* of spreadsheet data doesn't match with the *rules* or vice-versa saying *"Headers doesnot match the column counts"*.
  		rules = [{:field_id => "field_1", :label => "company name", :field_type => "text_data", 
  		          :value => "Sprout", :required => true, :validation_format => "general"
  		         }]

@@ -41,7 +41,7 @@ describe "CFInputValidator" do
     
     cloud_validator = CFInputValidator.new(rules)
     cloud_validator.parse_and_validate(inputs).should_not == output
-    cloud_validator.errors.should include("Headers doesnot math the column counts")
+    cloud_validator.errors.should include("Headers doesnot match the column counts")
   end
   
   it "should validate the input email by format rules" do
@@ -178,4 +178,21 @@ STR
     inputs.should == output
   end
     
+  it "should return a true boolean value (.valid?) if the rules match with result" do
+    rules = [{:field_id => "field_1", :label => "company name", :field_type => "text_data", 
+              :value => "Sprout", :required => true, :validation_format => "general"
+             },
+             {:field_id => "field_2", :label => "website", :field_type => "text_data",
+              :value => "http:\\www.yahoo.com", :required => true, :validation_format => "url"
+             }]
+    # TODO
+    # params = {:name => "Saroj", :site => "saroj.com"} which we've to convert to the following format
+    result1 = "company name,website\nzorasinc,http://zorasinc.blogspot.com"
+    result2 = "company name\nsaroz"
+    
+    CF = CFInputValidator
+    CF::ResultValidator.valid?(rules, result1).should be_true
+    CF::ResultValidator.valid?(rules, result2).should be_false
+  end
+  
 end
