@@ -1,4 +1,4 @@
-# Cloud Factory Input Validatior (CFInputValidator)
+# Cloud Factory Validatior (CFValidator)
 
 The CFInputValidator - Cloud Factory Input Validator is a simple gem to **validate** the *spreadsheet data* inputs as per the given rules.
 
@@ -10,15 +10,15 @@ This gem is being developed for Project **Cloud Factory** Copyright© [Sprout Te
 	
 In Gemfile
 	source 'http://rubygems.org'
-	gem 'c_f_input_validator'
+	gem 'cf_validator'
 	
 	bundle install
 
 OR 
-	gem install c_f_input_validator
+	gem install cf_validator
 	
 	require 'rubygems'
-	require 'c_f_input_validator'
+	require 'cf_validator'
 
 ## Usage
 
@@ -56,9 +56,9 @@ It also checks if value is present if required is true.
 		* `inputs = Excelx.new("fixtures/gdoc.xlsx").to_csv`
 		* `inputs = Openoffice.new("fixtures/gdoc.ods").to_csv`
 
-3. Create a new constructor of *CFInputValidator* class passing the above **rules** as argument.
+3. Create a new constructor of *CF::InputValidator* class passing the above **rules** as argument.
 
-		cloud_validator = CFInputValidator.new(rules)
+		cloud_validator = CF::InputValidator.new(rules)
 
 4. Call `parse_and_validate(data)` method passing the above inputs as arguments.
 		val = cloud_validator.parse_and_validate(inputs)
@@ -73,7 +73,7 @@ It also checks if value is present if required is true.
  		         }]
  		inputs = "company name,email\nSprout,info@sproutify.com"
 
-		cloud_validator = CFInputValidator.new(rules)
+		cloud_validator = CF::InputValidator.new(rules)
     	val = cloud_validator.parse_and_validate(inputs)
 		err = val.errors
 	

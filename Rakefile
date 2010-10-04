@@ -12,7 +12,7 @@ require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "c_f_input_validator"
+  gem.name = "cf_validator"
   gem.summary = %Q{Takes the Instruction Input as Rule, parse the CSV files and does the validation}
   gem.description = %Q{Takes the Instruction Input as Rule, parse the CSV files and applies the validation and returns valid and invalid units}
   gem.email = "saroj@sprout-technology.com"
@@ -53,7 +53,7 @@ Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "c_f_input_validator #{version}"
+  rdoc.title = "cf_validator #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
