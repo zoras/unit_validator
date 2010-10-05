@@ -1,14 +1,17 @@
 module ValidatorHelpers  
+  
+  private
+  
   def required(rule, value)
     # returns true unless value is blank when required rule is true
     (rule && value.blank?) ? false : true
   end
-
+  
   def valid(format, value)
     case format
     when "email"
       regex = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
-    when "url"
+    when "url" # image_data => url, path
       regex = /^(http:\/\/|https:\/\/)?(www.)?[a-zA-Z0-9\-\.]+\.([a-zA-Z]{2,3})([.]?[a-zA-Z]{2})?(\/\S*)?$/i
       msg = "Start with http:// or https://"
     when "number"
@@ -24,7 +27,10 @@ module ValidatorHelpers
       regex = /^(1[0-2]|0?[1-9])\/(3[01]|[12][0-9]|0?[1-9])\/(?:[0-9]{2})?[0-9]{2}|(([0-1]?[0-9])|([2][0-3])):([0-5]?[0-9])(:([0-5]?[0-9]))?$/
     when "currency" #=> for USD
       regex = /^\$?(?:\d+|\d{1,3}(?:,\d{3})*)(?:\.\d{1,2}){0,1}$/
-      # puts "value #{value.inspect} regex match #{value.match(regex).nil?}"
+    # when "boolean"
+    # when "rating"
+    # when "radio"
+    # when "checkbox" => multiple choice
     when "general"
       return true
     else
@@ -33,9 +39,9 @@ module ValidatorHelpers
     end
 
     if !value.nil?
-      value.match(regex) ? true : false
+      !value.match(regex).nil? ? true : false
     else
-      return true
+      return false
     end
   end
 
