@@ -37,6 +37,19 @@ Jeweler::RubygemsDotOrgTasks.new
 
 require 'rspec/core'
 require 'rspec/core/rake_task'
+
+require File.expand_path(File.dirname(__FILE__) + '/lib/tasks/rcov_test')
+# RubyGem using Rake and RSpec
+# Similarly, you just need to update your Rakefile to do:
+# require 'rspec/spec_task'
+# Spec::Rake::SpecTask.new("rcov_spec") do |t|
+#   t.spec_files = FileList['spec/**/*_spec.rb']
+#   t.spec_opts = ['--color']
+#   t.rcov = true
+#   t.rcov_opts = ['--exclude', '^spec,/gems/']
+# end
+# Now you can run rake rcov_spec and then see the report at coverage/index.html.
+
 RSpec::Core::RakeTask.new(:spec) do |spec|
   spec.pattern = FileList['spec/**/*_spec.rb']
 end

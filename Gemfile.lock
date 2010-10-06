@@ -20,16 +20,16 @@ GEM
     rake (0.8.7)
     rcov (0.9.9)
     roo (1.9.3)
-    rspec (2.0.0.beta.22)
-      rspec-core (= 2.0.0.beta.22)
-      rspec-expectations (= 2.0.0.beta.22)
-      rspec-mocks (= 2.0.0.beta.22)
-    rspec-core (2.0.0.beta.22)
-    rspec-expectations (2.0.0.beta.22)
+    rspec (2.0.0.rc)
+      rspec-core (= 2.0.0.rc)
+      rspec-expectations (= 2.0.0.rc)
+      rspec-mocks (= 2.0.0.rc)
+    rspec-core (2.0.0.rc)
+    rspec-expectations (2.0.0.rc)
       diff-lcs (>= 1.1.2)
-    rspec-mocks (2.0.0.beta.22)
-      rspec-core (= 2.0.0.beta.22)
-      rspec-expectations (= 2.0.0.beta.22)
+    rspec-mocks (2.0.0.rc)
+      rspec-core (= 2.0.0.rc)
+      rspec-expectations (= 2.0.0.rc)
     ruby-ole (1.2.10.1)
     spreadsheet (0.6.4.1)
       ruby-ole
@@ -50,6 +50,6 @@ DEPENDENCIES
   nokogiri
   rcov
   roo
-  rspec (>= 2.0.0.beta.19)
+  rspec (>= 2.0.0.rc)
   spreadsheet
   zip
