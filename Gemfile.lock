@@ -1,3 +1,14 @@
+PATH
+  remote: .
+  specs:
+    c_f_input_validator (1.0.0)
+      activesupport
+      google-spreadsheet-ruby
+      nokogiri
+      roo
+      spreadsheet
+      zip
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -45,11 +56,12 @@ DEPENDENCIES
   autotest-growl (>= 0.2.4)
   builder
   bundler (~> 1.0.0)
+  c_f_input_validator!
   google-spreadsheet-ruby
   jeweler (~> 1.5.0.pre3)
   nokogiri
   rcov
   roo
-  rspec (>= 2.0.0.rc)
+  rspec (>= 2.0.0.beta.19)
   spreadsheet
   zip
