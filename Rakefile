@@ -26,8 +26,8 @@ Jeweler::Tasks.new do |gem|
   gem.add_runtime_dependency 'nokogiri'
   gem.add_runtime_dependency 'google-spreadsheet-ruby'
   gem.add_runtime_dependency 'activesupport'
-  
-  #  spec.add_development_dependency 'rspec', '> 1.2.3'
+  gem.add_runtime_dependency 'builder'
+
   gem.add_development_dependency "rspec", ">= 2.0.0.beta.19"
   gem.add_development_dependency "bundler", "~> 1.0.0"
   gem.add_development_dependency "jeweler", "~> 1.5.0.pre3"

@@ -18,6 +18,7 @@ GEM
     autotest-growl (0.2.6)
     builder (2.1.2)
     diff-lcs (1.1.2)
+    fastercsv (1.5.3)
     git (1.2.5)
     google-spreadsheet-ruby (0.1.2)
       nokogiri (>= 1.4.3.1)
@@ -57,6 +58,7 @@ DEPENDENCIES
   builder
   bundler (~> 1.0.0)
   c_f_input_validator!
+  fastercsv
   google-spreadsheet-ruby
   jeweler (~> 1.5.0.pre3)
   nokogiri

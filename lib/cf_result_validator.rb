@@ -12,8 +12,7 @@ module CF
     end
 
     def valid?(rules, result)
-      # ...
-      csv_contents = CSV.parse(result)
+      csv_contents = FasterCSV.parse(result)
       csv_header = csv_contents[0].map{|a| a.strip unless a.nil? }
 
       rule_labels = Array.new

@@ -1,4 +1,4 @@
-require 'csv'
+require 'faster_csv'
 require 'roo'
 require 'active_support/core_ext/object/blank'
 require 'generic_spreadsheet'
@@ -29,7 +29,7 @@ module CF
     # returns a hash of arrays with two keys :valid_units and :invalid_units
     # {:valid_units => @valid_units, :invalid_units => @invalid_units}
     def parse_and_validate(inputs)
-      csv_contents = CSV.parse(inputs)
+      csv_contents = FasterCSV.parse(inputs)
       csv_header = csv_contents[0].map{|a| a.strip unless a.nil? }
 
       # Initialize rule_labels array and store labels of RULE_HEADERS into it

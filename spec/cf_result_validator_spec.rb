@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe CF::ResultValidator do
+  
   it "should return a true boolean value (.valid?) if the rules match with result" do
     rules = [{:field_id => "field_1", :label => "company name", :field_type => "text_data", 
               :value => "Sprout", :required => true, :validation_format => "general"
@@ -71,4 +72,5 @@ describe CF::ResultValidator do
     @result_validator.errors.should include("website is required")
     @result_validator.errors.should include("saroj@maharjan is not valid","bttn://abc.com is not valid")
   end  
+
 end
