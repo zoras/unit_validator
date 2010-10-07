@@ -10,15 +10,15 @@ This gem is being developed for Project **Cloud Factory** Copyright© [Sprout Te
 	
 In Gemfile
 	source 'http://rubygems.org'
-	gem 'cf_validator'
+	gem 'unit_validator'
 	
 	bundle install
 
 OR 
-	gem install cf_validator
+	gem install unit_validator
 	
 	require 'rubygems'
-	require 'cf_validator'
+	require 'unit_validator'
 
 ## Usage
 
