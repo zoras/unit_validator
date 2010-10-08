@@ -140,16 +140,42 @@ describe CF::InputValidator do
     cloud_validator.parse_and_validate(inputs)[:invalid_units].should == invalid_output
   end
   
+  it "should not validate unsupported validation_format" do
+    rules = [{:field_id => "field_1", :label => "Meeting On", :field_type => "text_data",
+              :value => "mm/dd/yyyy+hh:mm:ss", :required => true, :validation_format => "scroll"
+             }]
+    inputs = "Meeting On\n12/31/2003 12:12:12"
+    valid_output = [["12/31/2003 12:12:12"]]
+    err = "Validation format not supported:: scroll"
+    
+    cloud_validator = CF::InputValidator.new(rules)
+    cloud_validator.parse_and_validate(inputs)[:valid_units].should_not == valid_output
+    cloud_validator.parse_and_validate(inputs)[:invalid_units].should == valid_output
+    cloud_validator.errors.should include(err)
+  end
+  
+  it "should validate supported validation_format" do
+    rules = [{:field_id => "field_1", :label => "saroj", :field_type => "text_data",
+              :value => "mm/dd/yyyy+hh:mm:ss", :required => false, :validation_format => "datetime"
+             }]
+    inputs = "saroj\n\n"
+    valid_output = [["12/31/2003 12:12:12"]]
+    
+    cloud_validator = CF::InputValidator.new(rules)
+    cloud_validator.parse_and_validate(inputs)[:valid_units].should_not == valid_output
+    cloud_validator.errors.should be_empty
+  end
+  
   it "should validate currency (USD)" do
     rules = [{:field_id => "field_1", :label => "Amount", :field_type => "text_data",
               :value => "$1,113,000.00", :required => true, :validation_format => "currency"
              }]
     inputs = "Amount\n\"$1,113,000.00\"\n\"$3.99\"\n\"$5,000\"\n\"$1.0\"\n\"$22,222,222,222,222,222\"\n\"$74387498372947387483978934758744329.00\"\n1\n-9\n+555\n$50*100"
-    valid_output = [["$1,113,000.00","$3.99","$5,000","$1.0","$22,222,222,222,222,222","$74387498372947387483978934758744329.00","1"]]
+    valid_output = [["$1,113,000.00"], ["$3.99"], ["$5,000"], ["$1.0"], ["$22,222,222,222,222,222"], ["$74387498372947387483978934758744329.00"], ["1"]]
     invalid_output = [["-9"], ["+555"], ["$50*100"]]
     
     cloud_validator = CF::InputValidator.new(rules)
-    # cloud_validator.parse_and_validate(inputs)[:valid_units].should == valid_output
+    cloud_validator.parse_and_validate(inputs)[:valid_units].should == valid_output
     cloud_validator.parse_and_validate(inputs)[:invalid_units].should == invalid_output
   end
   

@@ -34,14 +34,13 @@ module ValidatorHelpers
     when "general"
       return true
     else
-      puts "Invalid format:: #{format}"
+      @errors << "Validation format not supported:: #{format}"
+      # puts "error message:: #{@errors.inspect}"
       return false
     end
 
-    if !value.nil?
+    if !value.blank?
       !value.match(regex).nil? ? true : false
-    else
-      return false
     end
   end
 

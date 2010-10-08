@@ -1,4 +1,4 @@
-require 'faster_csv'
+require 'fastercsv'
 require 'roo'
 require 'active_support/core_ext/object/blank'
 require 'generic_spreadsheet'
@@ -44,7 +44,7 @@ module CF
           rules.each_with_index do |header, index|
             next unless item # Escape nil items. This may result while reading csv file with blank line
 
-            unless item.compact.empty?
+            unless (item = item.select{|x| !x.blank? }).empty?
               item[index].strip! if !item[index].nil?
 
               if required(header[:required], item[index]) and valid(header[:validation_format], item[index])

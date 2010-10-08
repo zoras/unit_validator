@@ -7,10 +7,6 @@ module CF
       @errors = []
     end
 
-    def empty?
-      @errors.blank? ? true : false
-    end
-
     def valid?(rules, result)
       csv_contents = FasterCSV.parse(result)
       csv_header = csv_contents[0].map{|a| a.strip unless a.nil? }
