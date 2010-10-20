@@ -1,18 +1,7 @@
-PATH
-  remote: .
-  specs:
-    c_f_input_validator (1.0.0)
-      activesupport
-      google-spreadsheet-ruby
-      nokogiri
-      roo
-      spreadsheet
-      zip
-
 GEM
   remote: http://rubygems.org/
   specs:
-    activesupport (3.0.0)
+    activesupport (3.0.1)
     autotest-fsevent (0.2.3)
       sys-uname
     autotest-growl (0.2.6)
@@ -42,7 +31,7 @@ GEM
     rspec-mocks (2.0.0.rc)
       rspec-core (= 2.0.0.rc)
       rspec-expectations (= 2.0.0.rc)
-    ruby-ole (1.2.10.1)
+    ruby-ole (1.2.11)
     spreadsheet (0.6.4.1)
       ruby-ole
     sys-uname (0.8.4)
@@ -57,13 +46,12 @@ DEPENDENCIES
   autotest-growl (>= 0.2.4)
   builder
   bundler (~> 1.0.0)
-  c_f_input_validator!
   fastercsv
   google-spreadsheet-ruby
   jeweler (~> 1.5.0.pre3)
   nokogiri
   rcov
   roo
-  rspec (>= 2.0.0.beta.19)
+  rspec (>= 2.0.0.rc)
   spreadsheet
   zip

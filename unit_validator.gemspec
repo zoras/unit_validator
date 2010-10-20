@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{unit_validator}
-  s.version = ""
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["millisami", "zoras"]
-  s.date = %q{2010-10-08}
+  s.date = %q{2010-10-20}
   s.description = %q{Takes the Instruction Input as Rule, parse the CSV files and applies the validation and returns valid and invalid units}
   s.email = %q{saroj@sprout-technology.com}
   s.extra_rdoc_files = [
@@ -26,7 +26,6 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "autotest/discover.rb",
-    "c_f_input_validator.gemspec",
     "fixtures/gdoc.csv",
     "fixtures/gdoc.ods",
     "fixtures/gdoc.xls",
@@ -56,33 +55,20 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<c_f_input_validator>, [">= 0"])
-      s.add_runtime_dependency(%q<roo>, [">= 0"])
-      s.add_runtime_dependency(%q<zip>, [">= 0"])
-      s.add_runtime_dependency(%q<spreadsheet>, [">= 0"])
-      s.add_runtime_dependency(%q<nokogiri>, [">= 0"])
-      s.add_runtime_dependency(%q<google-spreadsheet-ruby>, [">= 0"])
-      s.add_runtime_dependency(%q<activesupport>, [">= 0"])
       s.add_development_dependency(%q<roo>, [">= 0"])
       s.add_development_dependency(%q<zip>, [">= 0"])
       s.add_development_dependency(%q<spreadsheet>, [">= 0"])
       s.add_development_dependency(%q<nokogiri>, [">= 0"])
       s.add_development_dependency(%q<google-spreadsheet-ruby>, [">= 0"])
       s.add_development_dependency(%q<activesupport>, [">= 0"])
-      s.add_development_dependency(%q<autotest-fsevent>, [">= 0.2.2"])
-      s.add_development_dependency(%q<autotest-growl>, [">= 0.2.4"])
-      s.add_development_dependency(%q<builder>, [">= 0"])
-      s.add_development_dependency(%q<rspec>, [">= 2.0.0.beta.19"])
-      s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
-      s.add_development_dependency(%q<jeweler>, ["~> 1.5.0.pre3"])
-      s.add_development_dependency(%q<rcov>, [">= 0"])
-      s.add_development_dependency(%q<rspec>, [">= 2.0.0.beta.19"])
-      s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
-      s.add_development_dependency(%q<jeweler>, ["~> 1.5.0.pre3"])
-      s.add_development_dependency(%q<rcov>, [">= 0"])
       s.add_development_dependency(%q<fastercsv>, [">= 0"])
       s.add_development_dependency(%q<autotest-fsevent>, [">= 0.2.2"])
       s.add_development_dependency(%q<autotest-growl>, [">= 0.2.4"])
+      s.add_development_dependency(%q<builder>, [">= 0"])
+      s.add_development_dependency(%q<rspec>, [">= 2.0.0.rc"])
+      s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
+      s.add_development_dependency(%q<jeweler>, ["~> 1.5.0.pre3"])
+      s.add_development_dependency(%q<rcov>, [">= 0"])
       s.add_runtime_dependency(%q<roo>, [">= 0"])
       s.add_runtime_dependency(%q<zip>, [">= 0"])
       s.add_runtime_dependency(%q<spreadsheet>, [">= 0"])
@@ -90,38 +76,25 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<google-spreadsheet-ruby>, [">= 0"])
       s.add_runtime_dependency(%q<activesupport>, [">= 0"])
       s.add_runtime_dependency(%q<builder>, [">= 0"])
-      s.add_development_dependency(%q<rspec>, [">= 2.0.0.beta.19"])
+      s.add_development_dependency(%q<rspec>, [">= 2.0.0.rc"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.5.0.pre3"])
       s.add_development_dependency(%q<rcov>, [">= 0"])
     else
-      s.add_dependency(%q<c_f_input_validator>, [">= 0"])
       s.add_dependency(%q<roo>, [">= 0"])
       s.add_dependency(%q<zip>, [">= 0"])
       s.add_dependency(%q<spreadsheet>, [">= 0"])
       s.add_dependency(%q<nokogiri>, [">= 0"])
       s.add_dependency(%q<google-spreadsheet-ruby>, [">= 0"])
       s.add_dependency(%q<activesupport>, [">= 0"])
-      s.add_dependency(%q<roo>, [">= 0"])
-      s.add_dependency(%q<zip>, [">= 0"])
-      s.add_dependency(%q<spreadsheet>, [">= 0"])
-      s.add_dependency(%q<nokogiri>, [">= 0"])
-      s.add_dependency(%q<google-spreadsheet-ruby>, [">= 0"])
-      s.add_dependency(%q<activesupport>, [">= 0"])
-      s.add_dependency(%q<autotest-fsevent>, [">= 0.2.2"])
-      s.add_dependency(%q<autotest-growl>, [">= 0.2.4"])
-      s.add_dependency(%q<builder>, [">= 0"])
-      s.add_dependency(%q<rspec>, [">= 2.0.0.beta.19"])
-      s.add_dependency(%q<bundler>, ["~> 1.0.0"])
-      s.add_dependency(%q<jeweler>, ["~> 1.5.0.pre3"])
-      s.add_dependency(%q<rcov>, [">= 0"])
-      s.add_dependency(%q<rspec>, [">= 2.0.0.beta.19"])
-      s.add_dependency(%q<bundler>, ["~> 1.0.0"])
-      s.add_dependency(%q<jeweler>, ["~> 1.5.0.pre3"])
-      s.add_dependency(%q<rcov>, [">= 0"])
       s.add_dependency(%q<fastercsv>, [">= 0"])
       s.add_dependency(%q<autotest-fsevent>, [">= 0.2.2"])
       s.add_dependency(%q<autotest-growl>, [">= 0.2.4"])
+      s.add_dependency(%q<builder>, [">= 0"])
+      s.add_dependency(%q<rspec>, [">= 2.0.0.rc"])
+      s.add_dependency(%q<bundler>, ["~> 1.0.0"])
+      s.add_dependency(%q<jeweler>, ["~> 1.5.0.pre3"])
+      s.add_dependency(%q<rcov>, [">= 0"])
       s.add_dependency(%q<roo>, [">= 0"])
       s.add_dependency(%q<zip>, [">= 0"])
       s.add_dependency(%q<spreadsheet>, [">= 0"])
@@ -129,39 +102,26 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<google-spreadsheet-ruby>, [">= 0"])
       s.add_dependency(%q<activesupport>, [">= 0"])
       s.add_dependency(%q<builder>, [">= 0"])
-      s.add_dependency(%q<rspec>, [">= 2.0.0.beta.19"])
+      s.add_dependency(%q<rspec>, [">= 2.0.0.rc"])
       s.add_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_dependency(%q<jeweler>, ["~> 1.5.0.pre3"])
       s.add_dependency(%q<rcov>, [">= 0"])
     end
   else
-    s.add_dependency(%q<c_f_input_validator>, [">= 0"])
     s.add_dependency(%q<roo>, [">= 0"])
     s.add_dependency(%q<zip>, [">= 0"])
     s.add_dependency(%q<spreadsheet>, [">= 0"])
     s.add_dependency(%q<nokogiri>, [">= 0"])
     s.add_dependency(%q<google-spreadsheet-ruby>, [">= 0"])
     s.add_dependency(%q<activesupport>, [">= 0"])
-    s.add_dependency(%q<roo>, [">= 0"])
-    s.add_dependency(%q<zip>, [">= 0"])
-    s.add_dependency(%q<spreadsheet>, [">= 0"])
-    s.add_dependency(%q<nokogiri>, [">= 0"])
-    s.add_dependency(%q<google-spreadsheet-ruby>, [">= 0"])
-    s.add_dependency(%q<activesupport>, [">= 0"])
-    s.add_dependency(%q<autotest-fsevent>, [">= 0.2.2"])
-    s.add_dependency(%q<autotest-growl>, [">= 0.2.4"])
-    s.add_dependency(%q<builder>, [">= 0"])
-    s.add_dependency(%q<rspec>, [">= 2.0.0.beta.19"])
-    s.add_dependency(%q<bundler>, ["~> 1.0.0"])
-    s.add_dependency(%q<jeweler>, ["~> 1.5.0.pre3"])
-    s.add_dependency(%q<rcov>, [">= 0"])
-    s.add_dependency(%q<rspec>, [">= 2.0.0.beta.19"])
-    s.add_dependency(%q<bundler>, ["~> 1.0.0"])
-    s.add_dependency(%q<jeweler>, ["~> 1.5.0.pre3"])
-    s.add_dependency(%q<rcov>, [">= 0"])
     s.add_dependency(%q<fastercsv>, [">= 0"])
     s.add_dependency(%q<autotest-fsevent>, [">= 0.2.2"])
     s.add_dependency(%q<autotest-growl>, [">= 0.2.4"])
+    s.add_dependency(%q<builder>, [">= 0"])
+    s.add_dependency(%q<rspec>, [">= 2.0.0.rc"])
+    s.add_dependency(%q<bundler>, ["~> 1.0.0"])
+    s.add_dependency(%q<jeweler>, ["~> 1.5.0.pre3"])
+    s.add_dependency(%q<rcov>, [">= 0"])
     s.add_dependency(%q<roo>, [">= 0"])
     s.add_dependency(%q<zip>, [">= 0"])
     s.add_dependency(%q<spreadsheet>, [">= 0"])
@@ -169,7 +129,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<google-spreadsheet-ruby>, [">= 0"])
     s.add_dependency(%q<activesupport>, [">= 0"])
     s.add_dependency(%q<builder>, [">= 0"])
-    s.add_dependency(%q<rspec>, [">= 2.0.0.beta.19"])
+    s.add_dependency(%q<rspec>, [">= 2.0.0.rc"])
     s.add_dependency(%q<bundler>, ["~> 1.0.0"])
     s.add_dependency(%q<jeweler>, ["~> 1.5.0.pre3"])
     s.add_dependency(%q<rcov>, [">= 0"])
