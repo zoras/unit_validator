@@ -27,6 +27,7 @@ Jeweler::Tasks.new do |gem|
   gem.add_runtime_dependency 'google-spreadsheet-ruby'
   gem.add_runtime_dependency 'activesupport'
   gem.add_runtime_dependency 'builder'
+  gem.add_runtime_dependency 'fastercsv'
 
   gem.add_development_dependency "rspec", ">= 2.0.0.rc"
   gem.add_development_dependency "bundler", "~> 1.0.0"

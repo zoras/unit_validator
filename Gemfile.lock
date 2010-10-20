@@ -1,3 +1,15 @@
+PATH
+  remote: .
+  specs:
+    unit_validator (0.1.0)
+      activesupport
+      builder
+      google-spreadsheet-ruby
+      nokogiri
+      roo
+      spreadsheet
+      zip
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -54,4 +66,5 @@ DEPENDENCIES
   roo
   rspec (>= 2.0.0.rc)
   spreadsheet
+  unit_validator!
   zip
